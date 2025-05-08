@@ -12,3 +12,6 @@ app.use(taskRoutes);
 
 app.listen(Port);
 console.log(`servidor corriendo en el puerto ${Port}`);
+app.get("/", (req, res) => {
+  res.send("Backend de la panadería funcionando");
+});
