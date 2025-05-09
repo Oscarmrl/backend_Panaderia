@@ -6,11 +6,11 @@ const router = Router();
 router.get("/productos", async (req, res) => {
   try {
     const [result] = await Pool.query("SELECT * FROM products");
-    console.log(result);
-
     res.json(result);
   } catch (error) {
-    console.log("Error en la consulta" + error);
+    console.error("Error en la consulta: " + error.message);
+    res.status(500).json({ error: "Error en el servidor" });
   }
 });
+
 export default router;
